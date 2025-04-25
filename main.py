@@ -3,6 +3,7 @@ from fastapi.responses import StreamingResponse
 from rembg import remove
 from PIL import Image
 import io
+import os
 
 app = FastAPI()
 
@@ -21,3 +22,8 @@ async def remove_background(file: UploadFile = File(...)):
     buf.seek(0)
 
     return StreamingResponse(buf, media_type="image/png")
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
