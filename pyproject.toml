@@ -18,11 +18,10 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-uvicorn = "^0.22"  # Add uvicorn as a dependency
-fastapi = "^0.100.0"
-# Add other dependencies here, for example:
-# numpy = "^1.21"
-# flask = "^2.0"
+fastapi = "^0.95.0"
+uvicorn = "^0.22.0"
+rembg = "^2.0.0"  # Your rembg dependency
+Pillow = "^9.0.0"  # Add this line to install Pillow
 
 [tool.poetry.dev-dependencies]
 # Development dependencies (e.g. testing tools like pytest)
