@@ -1,29 +1,21 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import StreamingResponse
-from rembg.bg import remove
-from PIL import Image
+from rembg import remove
 import io
 import os
 
 app = FastAPI()
+PORT = int(os.environ.get("PORT", 10000))  # Critical for Render
 
-# Get port from Render's environment variable
-PORT = int(os.environ.get("PORT", 10000))
-
-@app.post("/remove-background")
+@app.post("/remove-bg")
 async def remove_background(file: UploadFile = File(...)):
     try:
-        contents = await file.read()
-        input_image = Image.open(io.BytesIO(contents)).convert("RGBA")
-        output_image = Image.fromarray(remove(input_image))
-
-        buf = io.BytesIO()
-        output_image.save(buf, format="PNG")
-        buf.seek(0)
-        return StreamingResponse(buf, media_type="image/png")
+        image_data = await file.read()
+        output = remove(image_data)
+        return StreamingResponse(io.BytesIO(output), media_type="image/png")
     except Exception as e:
-        raise HTTPException(500, detail=str(e))
+        return {"error": str(e)}
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=PORT)  # Explicit port binding
+@app.get("/health")
+def health_check():
+    return {"status": "active", "port": PORT}
