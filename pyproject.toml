@@ -11,7 +11,7 @@ tag_prefix = "v"
 parentdir_prefix = "rembg-"
 
 [tool.poetry]
-name = "rembg"
+name = "rembg-project"  # Renamed to avoid conflict with dependency
 version = "0.1.0"  # Adjust if needed
 description = "A Python library for background removal"
 authors = ["Your Name <you@example.com>"]
