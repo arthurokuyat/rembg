@@ -1,6 +1,4 @@
 [build-system]
-# These are the assumed default build requirements from pip:
-# https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
 requires = ["setuptools>=65.5.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -11,3 +9,19 @@ versionfile_source = "rembg/_version.py"
 versionfile_build = "rembg/_version.py"
 tag_prefix = "v"
 parentdir_prefix = "rembg-"
+
+[tool.poetry]
+name = "rembg"
+version = "0.1.0"  # Adjust if needed
+description = "A Python library for background removal"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+# Add other dependencies here, for example:
+# numpy = "^1.21"
+# flask = "^2.0"
+
+[tool.poetry.dev-dependencies]
+# Development dependencies (e.g. testing tools like pytest)
+# pytest = "^6.2"
