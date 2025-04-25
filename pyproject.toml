@@ -28,3 +28,6 @@ python-multipart = "*"
 [tool.poetry.dev-dependencies]
 # Development dependencies (e.g. testing tools like pytest)
 # pytest = "^6.2"
+
+[tool.poetry.scripts]
+start = "sh -c 'uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}'"
