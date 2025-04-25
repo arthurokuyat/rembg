@@ -17,7 +17,7 @@ description = "A Python library for background removal"
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"  # Adjusted Python version to match rembg's requirements
+python = ">=3.8,<3.12"  # Adjusted Python version to include 3.11
 fastapi = "^0.95.0"
 uvicorn = "^0.22.0"
 rembg = "^2.0.0"  # Your rembg dependency
