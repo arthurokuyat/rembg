@@ -5,6 +5,9 @@ from PIL import Image
 import io
 import os
 
+# Debug print to confirm PORT value
+print(f"PORT is set to: {os.getenv('PORT')}")
+
 app = FastAPI()
 
 @app.get("/")
