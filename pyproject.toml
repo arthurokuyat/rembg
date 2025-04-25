@@ -22,6 +22,7 @@ fastapi = "^0.95.0"
 uvicorn = "^0.22.0"
 rembg = "^2.0.0"  # Your rembg dependency
 Pillow = "^9.0.0"  # Add this line to install Pillow
+onnxruntime = "^1.15.0"  # Added onnxruntime to resolve missing module error
 
 [tool.poetry.dev-dependencies]
 # Development dependencies (e.g. testing tools like pytest)
